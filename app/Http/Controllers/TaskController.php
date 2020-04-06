@@ -18,7 +18,7 @@ class TaskController extends Controller
 //        ];
 //        print_r($data);
 //        die();
-        $c = Task::all()->count();
+        $c = Task::all()->where('szint', $szint)->count();
         $d = Task::find(rand(0,$c-1))->feladat;
         $data = [
             'task' => $d,
