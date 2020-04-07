@@ -35,5 +35,8 @@
 		<div class="terkoz">
 		 	<a href="/valassz/{{$data['szint']}}" id="nav_gomb">Következő <i class="fa fa-angle-right"></i></a>
 		</div>
+        <div class="cim_div_bg">
+            Erősség: {{$data['erosseg']}}
+        </div>
 	</div>
 </body>

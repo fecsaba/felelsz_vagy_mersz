@@ -8,20 +8,16 @@ use Illuminate\Http\Request;
 class QuestionController extends Controller
 {
     public function index($szint) {
-//        $q = Question::all()->where('szint', $szint);
-//        foreach ($q as $item) {
-//            echo($item->feladat);
-//        }
-
-//        print_r($data);
-//        die();
         $c = Question::all()->where('szint', $szint)->count();
-        $d = Question::find(rand(0,$c-1))->feladat;
+        $recordsBySzint = Question::all()->where('szint', $szint);
+        $i = rand(0,$c-1);
+        $d =($recordsBySzint->values()[$i]['feladat']);
+        $sz =($recordsBySzint->values()[$i]['szint']);
         $data = [
             'question' => $d,
-            'szint' => $szint
+            'szint' => $szint,
+            'erosseg' => $sz
         ];
-//        dd($data);
         return view('feleles.feleles')->with('data', $data);
     }
 }
